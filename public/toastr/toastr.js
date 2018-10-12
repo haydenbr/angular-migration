@@ -1,8 +1,6 @@
-(function() {
-  var toastrModule = angular.module('toastr', []);
-  
-  toastr.options.timeOut = 1000;
-  
-  toastrModule.value('toastr', toastr);
-  
-}())
+(function () {
+    var toastrModule = angular.module('toastr', []);
+    window['toastr'].options.timeOut = 1000;
+    toastrModule.value('toastr', window['toastr']);
+}());
+//# sourceMappingURL=toastr.js.map
