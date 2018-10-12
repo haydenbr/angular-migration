@@ -3,7 +3,7 @@ angular.module('app').component('createUsers', {
 	bindings: {},
 	controller: function(parseNames, users, toastr) {
 		this.import = function() {
-			var people = parseNames(this.namesblob);
+			let people = parseNames(this.namesblob);
 			people.forEach(
 				function(person) {
 					users

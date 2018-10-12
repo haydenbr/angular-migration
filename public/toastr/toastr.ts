@@ -1,5 +1,5 @@
 (function() {
-  var toastrModule = angular.module('toastr', []);
+  let toastrModule = angular.module('toastr', []);
 
   window['toastr'].options.timeOut = 1000;
 

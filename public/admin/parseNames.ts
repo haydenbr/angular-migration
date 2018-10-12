@@ -1,8 +1,8 @@
 angular.module('app').factory('parseNames', function() {
   return function(blobInput) {
-    var lines = blobInput.split(/\r?\n/);
+    let lines = blobInput.split(/\r?\n/);
     lines.forEach(function(line, idx) {
-      var pieces = line.split('|');
+      let pieces = line.split('|');
       lines[idx] = {
         email: pieces[0],
         firstName: pieces[1],

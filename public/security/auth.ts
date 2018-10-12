@@ -1,7 +1,7 @@
 angular.module('app').factory('auth', function($q, $http, currentIdentity) {
   return {
     login: function(credentials) {
-      var dfd = $q.defer();
+      let dfd = $q.defer();
       $http.post('/api/login', credentials).then(function(response) {
         currentIdentity.setUser(response.data.user);
         
@@ -12,7 +12,7 @@ angular.module('app').factory('auth', function($q, $http, currentIdentity) {
       return dfd.promise;
     },
     logout: function() {
-      var dfd = $q.defer();
+      let dfd = $q.defer();
       $http.post('/api/logout').then(function(response) {
         currentIdentity.clearUser();
         dfd.resolve();
@@ -23,7 +23,7 @@ angular.module('app').factory('auth', function($q, $http, currentIdentity) {
     },
     
     waitForAuth: function() {
-      var dfd = $q.defer();
+      let dfd = $q.defer();
       $http.get('/api/currentIdentity').then(function(response) {
         if(!!response.data) {
           currentIdentity.setUser(response.data);

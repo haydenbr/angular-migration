@@ -1,7 +1,7 @@
 angular.module('app').factory('sessions', function($http, $q) {
   return {
     getSessionsByUser: function(userId) {
-      var dfd = $q.defer();
+      let dfd = $q.defer();
       
       $http.get('/api/sessions/user/' + userId).then(function(response) {
         dfd.resolve(response.data);
@@ -12,7 +12,7 @@ angular.module('app').factory('sessions', function($http, $q) {
     },
     
     getAllSessions: function() {
-      var dfd = $q.defer();
+      let dfd = $q.defer();
       
       $http.get('/api/sessions').then(function(response) {
         dfd.resolve(response.data);

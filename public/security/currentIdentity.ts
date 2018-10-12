@@ -12,7 +12,7 @@ angular.module('app').factory('currentIdentity', function($http, $q) {
       return !!this.currentUser;
     },
     updateUser: function(newUserObj) {
-      var dfd = $q.defer();
+      let dfd = $q.defer();
       
       
       $http.put('/api/users/' + this.currentUser.id, newUserObj).then(function(response) {

@@ -4,7 +4,7 @@ angular.module('app').factory('users', function($http, $q) {
       return $http.post('/api/users', newUser);
     },
     getAllUsers: function() {
-      var dfd = $q.defer();
+      let dfd = $q.defer();
       
       $http.get('/api/users').then(function(response) {
         dfd.resolve(response.data);
