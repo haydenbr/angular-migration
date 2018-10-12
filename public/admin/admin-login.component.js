@@ -1,11 +1,11 @@
-angular.module("app").component("adminLogin", {
-	templateUrl: "/admin/admin-login.component.html",
+angular.module('app').component('adminLogin', {
+	templateUrl: '/admin/admin-login.component.html',
 	bindings: {},
 	controller: function($location, currentIdentity, auth, toastr) {
 		this.loggedIn = currentIdentity.authenticated();
 
 		if (this.loggedIn) {
-			$location.path("/home");
+			$location.path('/home');
 		}
 
 		this.login = function() {
@@ -16,7 +16,7 @@ angular.module("app").component("adminLogin", {
 				})
 				.then(
 					function() {
-						$location.path("/home");
+						$location.path('/home');
 					},
 					function(err) {
 						toastr.error(err);
