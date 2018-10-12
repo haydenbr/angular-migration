@@ -1,4 +1,4 @@
-angular.module('app').factory('currentIdentity', function ($http, $q) {
+angular.module('app').factory('currentIdentity', function ($http) {
     return {
         currentUser: null,
         setUser: function (user) {
@@ -11,16 +11,17 @@ angular.module('app').factory('currentIdentity', function ($http, $q) {
             return !!this.currentUser;
         },
         updateUser: function (newUserObj) {
-            var dfd = $q.defer();
-            $http.put('/api/users/' + this.currentUser.id, newUserObj).then(function (response) {
-                this.currentUser.firstName = newUserObj.firstName;
-                this.currentUser.lastName = newUserObj.lastName;
-                dfd.resolve();
-            }.bind(this), function (response) {
-                dfd.reject("Error Logging Out");
+            var _this = this;
+            return $http
+                .put('/api/users/' + this.currentUser.id, newUserObj)
+                .then(function () {
+                _this.currentUser.firstName = newUserObj.firstName;
+                _this.currentUser.lastName = newUserObj.lastName;
+            })
+                .catch(function () {
+                throw 'Error Logging Out';
             });
-            return dfd.promise;
-        }
+        },
     };
 });
 //# sourceMappingURL=currentIdentity.js.map

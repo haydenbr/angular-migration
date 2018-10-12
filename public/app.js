@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngRoute', 'toastr']);
 app.run(function ($rootScope, $location) {
-    $rootScope.$on('$routeChangeError', function (e, next, prev, err) {
+    return $rootScope.$on('$routeChangeError', function (e, next, prev, err) {
         if (err === 'AUTH_REQUIRED') {
             $location.path('/login');
         }
@@ -9,7 +9,5 @@ app.run(function ($rootScope, $location) {
         }
     });
 });
-angular.element(document).ready(function () {
-    angular.bootstrap(document.body, ['app']);
-});
+angular.element(document).ready(function () { return angular.bootstrap(document.body, ['app']); });
 //# sourceMappingURL=app.js.map
