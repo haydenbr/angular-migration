@@ -25,13 +25,14 @@ app.config(function($routeProvider) {
         return users.getAllUsers();
       });
     }
-    
+
   }
-  
+
   $routeProvider
     .when('/admin/login', {
       controller: 'adminLoginCtrl',
-      templateUrl: 'admin/adminLogin.html',
+			templateUrl: 'admin/adminLogin.html',
+			controllerAs: '$ctrl',
       resolve: {
         currentAuth: routeResolvers.waitForAuth
       }
