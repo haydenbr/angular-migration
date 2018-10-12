@@ -1,13 +1,10 @@
-angular.module('app').directive('unreviewedTalk', function() {
-  return {
-    templateUrl: '/home/unreviewedTalk.html',
-    scope: {
+angular.module('app').component('unreviewedTalk', {
+    templateUrl: '/home/unreviewed-talk.component.html',
+    bindings: {
       session: '=',
       voteYes: '&',
       voteNo: '&'
 		},
-		controllerAs: '$ctrl',
-		bindToController: true,
     controller: function() {
       this.yes = function() {
         this.voteYes();
@@ -17,5 +14,4 @@ angular.module('app').directive('unreviewedTalk', function() {
         this.voteNo();
       }
     }
-  }
-})
+});

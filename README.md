@@ -1,6 +1,1 @@
-to install & Run:
-
-npm install
-npm install nodemon -g
-cd server
-nodemon server.js
+based on Joe Eames's [Pluralsight Course](https://www.pluralsight.com/courses/migrating-applications-angular-2)
