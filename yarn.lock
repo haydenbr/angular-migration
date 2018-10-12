@@ -2,6 +2,21 @@
 # yarn lockfile v1
 
 
+"@types/angular@1.6.26":
+  version "1.6.26"
+  resolved "https://registry.yarnpkg.com/@types/angular/-/angular-1.6.26.tgz#a96cccef648de0bf7435f3b9bad13f2430719305"
+  integrity sha512-PdoZ2kKe2AytqVSReTdqYV1Wxqf70zREnys+kCeAh0wUMXOZboA1IFzqcKOxUMRGEL2npbfCCiv2FJBOaOCdNA==
+
+"@types/core-js@0.9.42":
+  version "0.9.42"
+  resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.42.tgz#dd6da92cd7d5ab5ca0b4477524537c3e633b6bce"
+  integrity sha512-AiEZz42jF2f4nkcJ2OhKWxIbXU62pEHmFoaGoGo83seUzDEncxEZtBPX2i2DLUpcVpaVVxAsqAAZzTyrV0A/RQ==
+
+"@types/jasmine@2.5.53":
+  version "2.5.53"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.53.tgz#4e0cefad09df5ec48c8dd40433512f84b1568d61"
+  integrity sha512-2YNL0jXYuN7w07mb1sMZQ6T6zOvGi83v8UbjhBZ8mhvI1VkQ2STU9XOrTFyvWswMyh5rW1evS+e7qltYJvTqPA==
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -2240,6 +2255,11 @@ type-is@~1.6.16:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.18"
+
+typescript@2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
+  integrity sha1-PTgyGCgjHkNPKHUUlZw3qCtin0I=
 
 uid-safe@~2.1.5:
   version "2.1.5"
