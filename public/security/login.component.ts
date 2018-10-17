@@ -1,25 +1,27 @@
+class LoginCtrl {
+	public email: string;
+
+	constructor(private $location, private currentIdentity, private auth, private toastr) {}
+
+	$onInit() {
+		if (this.currentIdentity.authenticated()) {
+			this.$location.path('/home');
+		}
+	}
+
+	login() {
+		this.auth
+			.login({
+				username: this.email,
+				password: 'pass',
+			})
+			.then(() => this.$location.path('/home'))
+			.catch((err) => this.toastr.error(err));
+	};
+}
+
 angular.module('app').component('login', {
 	templateUrl: '/security/login.component.html',
 	bindings: {},
-	controller: function($location, currentIdentity, auth, toastr) {
-		if (currentIdentity.authenticated()) {
-			$location.path('/home');
-		}
-
-		this.login = function() {
-			auth
-				.login({
-					username: this.email,
-					password: 'pass',
-				})
-				.then(
-					function() {
-						$location.path('/home');
-					},
-					function(err) {
-						toastr.error(err);
-					}
-				);
-		};
-	},
+	controller: LoginCtrl
 });
