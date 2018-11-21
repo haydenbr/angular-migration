@@ -9,7 +9,8 @@ const ENV = process.env.NODE_ENV;
 
 module.exports = {
 	entry: {
-		ngjs: './public/index.ts'
+		ng1: './public/index.ts',
+		app: './public/main.ts'
 	},
 	output: {
 		path: path.join(rootDir, 'dist', 'dev'),
@@ -44,10 +45,15 @@ module.exports = {
 			sourceRoot: 'webpack:///'
 		}),
 		new HtmlWebpackPlugin({
-			template: 'webpack/index.html',
+			template: 'public/index.html',
 		}),
 		new webpack.DefinePlugin({
 			'process.env': { ENV: JSON.stringify(ENV) }
-		})
+		}),
+		new webpack.ContextReplacementPlugin(
+			/angular(\\|\/)core(\\|\/)@angular/,
+			path.join(rootDir, 'src'),
+			{}
+		)
 	]
 }
