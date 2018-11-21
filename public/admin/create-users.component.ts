@@ -1,7 +1,11 @@
+import { NameParserService } from '../app/admin/providers';
+
+declare var angular: angular.IAngularStatic;
+
 class CreateUsersComponent {
 	namesblob: string;
 
-	constructor(private nameParser, private users, private toastr) {}
+	constructor(private nameParser: NameParserService, private users, private toastr) {}
 
 	import() {
 		let people = this.nameParser.parseNames(this.namesblob);
