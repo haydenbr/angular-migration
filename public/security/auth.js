@@ -1,37 +1,48 @@
-angular.module('app').factory('auth', function ($http, currentIdentity) { return ({
-    login: function (credentials) {
-        return $http
+var AuthService = (function () {
+    function AuthService($http, currentIdentity) {
+        this.$http = $http;
+        this.currentIdentity = currentIdentity;
+    }
+    AuthService.prototype.login = function (credentials) {
+        var _this = this;
+        return this.$http
             .post('/api/login', credentials)
-            .then(function (response) { return currentIdentity.setUser(response.data.user); })
+            .then(function (response) { return _this.currentIdentity.setUser(response.data.user); })
             .catch(function () {
             throw 'Invalid Credentials';
         });
-    },
-    logout: function () {
-        return $http
+    };
+    AuthService.prototype.logout = function () {
+        var _this = this;
+        return this.$http
             .post('/api/logout')
-            .then(function () { return currentIdentity.clearUser(); })
+            .then(function () { return _this.currentIdentity.clearUser(); })
             .catch(function () {
             throw 'Error Logging Out';
         });
-    },
-    waitForAuth: function () {
-        return $http.get('/api/currentIdentity').then(function (response) {
+    };
+    AuthService.prototype.waitForAuth = function () {
+        var _this = this;
+        return this.$http.get('/api/currentIdentity').then(function (response) {
             if (!!response.data) {
-                currentIdentity.setUser(response.data);
+                _this.currentIdentity.setUser(response.data);
             }
-            return currentIdentity;
+            return _this.currentIdentity;
         });
-    },
-    requireLogin: function () {
-        return this.waitForAuth().then(function () { return currentIdentity.authenticated() || Promise.reject('AUTH_REQUIRED'); });
-    },
-    requireAdmin: function () {
+    };
+    AuthService.prototype.requireLogin = function () {
+        var _this = this;
+        return this.waitForAuth().then(function () { return _this.currentIdentity.authenticated() || Promise.reject('AUTH_REQUIRED'); });
+    };
+    AuthService.prototype.requireAdmin = function () {
+        var _this = this;
         return this.waitForAuth().then(function () {
-            return (currentIdentity.authenticated() &&
-                currentIdentity.currentUser.isAdmin) ||
+            return (_this.currentIdentity.authenticated() &&
+                _this.currentIdentity.currentUser.isAdmin) ||
                 Promise.reject('AUTH_REQUIRED');
         });
-    },
-}); });
+    };
+    return AuthService;
+}());
+angular.module('app').service('auth', AuthService);
 //# sourceMappingURL=auth.js.map

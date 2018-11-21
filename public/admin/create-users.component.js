@@ -1,23 +1,31 @@
+var CreateUsersComponent = (function () {
+    function CreateUsersComponent(parseNames, users, toastr) {
+        this.parseNames = parseNames;
+        this.users = users;
+        this.toastr = toastr;
+    }
+    CreateUsersComponent.prototype.import = function () {
+        var _this = this;
+        var people = this.parseNames(this.namesblob);
+        people.forEach(function (person) {
+            return _this.users
+                .createNewUser({
+                email: person.email,
+                password: 'pass',
+                firstName: person.firstName,
+                lastName: person.lastName,
+            })
+                .catch(function () {
+                _this.toastr.error('User already exists: ' + person.email);
+            });
+        });
+        this.toastr.success('Users Created!');
+    };
+    return CreateUsersComponent;
+}());
 angular.module('app').component('createUsers', {
     templateUrl: '/admin/create-users.component.html',
     bindings: {},
-    controller: function (parseNames, users, toastr) {
-        this.import = function () {
-            var people = parseNames(this.namesblob);
-            people.forEach(function (person) {
-                users
-                    .createNewUser({
-                    email: person.email,
-                    password: 'pass',
-                    firstName: person.firstName,
-                    lastName: person.lastName,
-                })
-                    .catch(function (error) {
-                    toastr.error('User already exists: ' + person.email);
-                }.bind(this));
-            }.bind(this));
-            toastr.success('Users Created!');
-        };
-    },
+    controller: CreateUsersComponent
 });
 //# sourceMappingURL=create-users.component.js.map
