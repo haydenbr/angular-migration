@@ -6,6 +6,8 @@ import { UpgradeModule } from '@angular/upgrade/static';
 
 import { AppComponent } from './app.component';
 import { AdminModule } from './admin';
+import { HomeModule } from './home';
+import { SharedModule } from './shared';
 
 @NgModule({
 	imports: [
@@ -14,7 +16,9 @@ import { AdminModule } from './admin';
 		FormsModule,
 		HttpModule,
 		UpgradeModule,
-		AdminModule
+		SharedModule,
+		AdminModule,
+		HomeModule
 	],
 	declarations: [AppComponent],
 	providers: [],
