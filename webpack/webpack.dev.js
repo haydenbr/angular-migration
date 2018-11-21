@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const rootDir = path.resolve(__dirname, '..');
 
@@ -9,6 +10,7 @@ const ENV = process.env.NODE_ENV;
 
 module.exports = {
 	entry: {
+		pollyfills: './public/pollyfills.ts',
 		ng1: './public/index.ts',
 		app: './public/main.ts'
 	},
@@ -46,6 +48,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: 'public/index.html',
+			chunks: ['app']
 		}),
 		new webpack.DefinePlugin({
 			'process.env': { ENV: JSON.stringify(ENV) }
@@ -54,6 +57,7 @@ module.exports = {
 			/angular(\\|\/)core(\\|\/)@angular/,
 			path.join(rootDir, 'src'),
 			{}
-		)
+		),
+		// new BundleAnalyzerPlugin({ analyzerMode: 'static' })
 	]
 }
