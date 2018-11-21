@@ -1,21 +1,33 @@
-angular.module('app').factory('sessions', ($http, $q) => ({
-	getSessionsByUser: (userId) =>
-		$http.get('/api/sessions/user/' + userId).then((response) => response.data),
+class SessionService {
+	constructor(private $http: angular.IHttpService) {}
 
-	getAllSessions: () =>
-		$http.get('/api/sessions').then((response) => response.data),
+	getSessionsByUser(userId) {
+		return this.$http.get('/api/sessions/user/' + userId).then((response) => response.data);
+	}
 
-	createNewSession: (newSession) => $http.post('/api/sessions', newSession),
+	getAllSessions() {
+		return this.$http.get('/api/sessions').then((response) => response.data);
+	}
 
-	getNextUnreviewedSession: (userId) =>
-		$http.get('/api/users/' + userId + '/randomUnreviewedSession'),
+	createNewSession(newSession) {
+		return this.$http.post('/api/sessions', newSession);
+	}
 
-	addReviewedSession: (userId, sessionId) =>
-		$http.post('/api/users/' + userId + '/reviewSession/' + sessionId),
+	getNextUnreviewedSession(userId) {
+		return this.$http.get('/api/users/' + userId + '/randomUnreviewedSession');
+	}
 
-	incrementVote: (sessionId) =>
-		$http.put('/api/sessions/' + sessionId + '/incrementVote/'),
+	addReviewedSession(userId, sessionId) {
+		return this.$http.post('/api/users/' + userId + '/reviewSession/' + sessionId, {});
+	}
 
-	getUnreviewedCount: (userId) =>
-		$http.get('/api/users/' + userId + '/unreviewedSessionCount'),
-}));
+	incrementVote(sessionId) {
+		return this.$http.put('/api/sessions/' + sessionId + '/incrementVote/', {});
+	}
+
+	getUnreviewedCount(userId) {
+		return this.$http.get('/api/users/' + userId + '/unreviewedSessionCount');
+	}
+}
+
+angular.module('app').service('sessions', SessionService);
