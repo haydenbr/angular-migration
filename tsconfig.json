@@ -5,6 +5,8 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"removeComments": false,
+		"module": "commonjs",
+		"moduleResolution": "node",
 		"lib": [
 			"es2017", "dom"
 		]

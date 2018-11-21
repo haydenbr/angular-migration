@@ -1,4 +1,4 @@
-app.config($routeProvider => {
+angular.module('app').config($routeProvider => {
 	let routeResolvers = {
 		loggedIn: auth => auth.requireLogin(),
 		waitForAuth: auth => auth.waitForAuth(),

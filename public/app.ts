@@ -10,4 +10,5 @@ app.run(($rootScope, $location) =>
 		}
 	}));
 
-angular.element(document).ready(() => angular.bootstrap(document.body, ['app']));
+// angularjs bootstrapping
+// angular.element(document).ready(() => angular.bootstrap(document.body, ['app']));

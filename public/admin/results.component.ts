@@ -1,5 +1,5 @@
 angular.module('app').component('results', {
-	templateUrl: '/admin/results.component.html',
+	templateUrl: './results.component.html',
 	bindings: {
 		allSessions: '<'
 	},

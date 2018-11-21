@@ -1,5 +1,5 @@
 angular.module('app').component('unreviewedTalk', {
-	templateUrl: '/home/unreviewed-talk.component.html',
+	templateUrl: './unreviewed-talk.component.html',
 	bindings: {
 		session: '=',
 		voteYes: '&',

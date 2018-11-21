@@ -23,7 +23,7 @@ class CreateUsersComponent {
 }
 
 angular.module('app').component('createUsers', {
-	templateUrl: '/admin/create-users.component.html',
+	templateUrl: './create-users.component.html',
 	bindings: {},
 	controller: CreateUsersComponent
 });

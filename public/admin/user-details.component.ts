@@ -1,5 +1,5 @@
 angular.module('app').component('userDetails', {
-	templateUrl: '/admin/user-details.component.html',
+	templateUrl: './user-details.component.html',
 	bindings: {
 		allUsers: '<'
 	},

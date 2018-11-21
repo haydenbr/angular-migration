@@ -1,5 +1,5 @@
 angular.module('app').component('adminLogin', {
-	templateUrl: '/admin/admin-login.component.html',
+	templateUrl: './admin-login.component.html',
 	bindings: {},
 	controller: function($location, currentIdentity, auth, toastr) {
 		this.loggedIn = currentIdentity.authenticated();

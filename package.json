@@ -4,8 +4,9 @@
 	"description": "lightning talk voting app",
 	"main": "index.js",
 	"scripts": {
-		"start": "node ./server/server.js",
-		"dev": "nodemon ./server/server.js -w ./server"
+		"server": "nodemon ./server/server.js -w ./server",
+		"start": "yarn clean-dev && webpack --config webpack/webpack.dev.js --watch --profile --progress",
+		"clean-dev": "rimraf dist/dev/*"
 	},
 	"keywords": [],
 	"author": "joe eames",
@@ -25,8 +26,6 @@
 		"body-parser": "^1.15.0",
 		"cookie-parser": "^1.4.1",
 		"core-js": "2.4.1",
-		"rxjs": "5.0.1",
-		"zone.js": "0.8.14",
 		"debug": "^2.2.0",
 		"ejs": "^2.4.1",
 		"express": "^4.13.4",
@@ -35,22 +34,24 @@
 		"morgan": "^1.7.0",
 		"passport": "^0.3.2",
 		"passport-local": "^1.0.0",
-		"toastr": "^2.1.4"
+		"rxjs": "5.0.1",
+		"toastr": "^2.1.4",
+		"zone.js": "0.8.14"
 	},
 	"devDependencies": {
 		"@angular/compiler-cli": "4.3.0",
 		"@ngtools/webpack": "1.5.5",
 		"@types/angular": "1.6.26",
-		"@types/core-js": "0.9.42",
 		"@types/node": "6.0.45",
+		"@types/webpack": "^4.4.19",
 		"angular2-template-loader": "0.6.2",
 		"awesome-typescript-loader": "3.0.8",
 		"html-loader": "0.4.5",
 		"html-webpack-plugin": "2.28.0",
-		"typescript": "2.3.4",
 		"null-loader": "0.1.1",
 		"raw-loader": "0.5.1",
 		"rimraf": "2.5.4",
+		"typescript": "2.3.4",
 		"webpack": "3.3.0",
 		"webpack-bundle-analyzer": "2.8.3"
 	}

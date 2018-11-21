@@ -25,7 +25,7 @@ class CreateNewSessionComponent {
 }
 
 angular.module('app').component('createNewSession', {
-	templateUrl: '/home/create-new-session.component.html',
+	templateUrl: './create-new-session.component.html',
 	bindings: {
 		userSessions: '<',
 	},

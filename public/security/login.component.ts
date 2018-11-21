@@ -21,7 +21,7 @@ class LoginCtrl {
 }
 
 angular.module('app').component('login', {
-	templateUrl: '/security/login.component.html',
+	templateUrl: './login.component.html',
 	bindings: {},
 	controller: LoginCtrl
 });

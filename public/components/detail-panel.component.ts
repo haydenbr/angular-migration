@@ -1,6 +1,6 @@
 angular.module('app').component('detailPanel',{
     transclude: true,
-    templateUrl: '/components/detail-panel.component.html',
+    templateUrl: './detail-panel.component.html',
     bindings: {
       title: '@',
       initialCollapsed: '@collapsed'

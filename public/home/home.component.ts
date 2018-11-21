@@ -41,7 +41,7 @@ class HomeComponent {
 }
 
 angular.module('app').component('home', {
-	templateUrl: '/home/home.component.html',
+	templateUrl: './home.component.html',
 	bindings: {
 		userSessions: '<',
 	},
