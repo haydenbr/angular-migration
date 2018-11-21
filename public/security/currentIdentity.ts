@@ -1,25 +1,31 @@
-angular.module('app').factory('currentIdentity', function($http) {
-	return {
-		currentUser: null,
-		setUser: function(user) {
-			this.currentUser = user;
-		},
-		clearUser: function() {
-			this.currentUser = null;
-		},
-		authenticated: function() {
-			return !!this.currentUser;
-		},
-		updateUser: function(newUserObj) {
-			return $http
-				.put('/api/users/' + this.currentUser.id, newUserObj)
-				.then(() => {
-					this.currentUser.firstName = newUserObj.firstName;
-					this.currentUser.lastName = newUserObj.lastName;
-				})
-				.catch(() => {
-					throw 'Error Logging Out';
-				});
-		},
-	};
-});
+class CurrentIdentity {
+	currentUser: any;
+
+	constructor(private $http: angular.IHttpService) {}
+
+	setUser(user: any) {
+		this.currentUser = user;
+	}
+
+	clearUser() {
+		this.currentUser = undefined;
+	}
+
+	authenticated() {
+		return !!this.currentUser;
+	}
+
+	updateUser(newUserObj) {
+		return this.$http
+			.put('/api/users/' + this.currentUser.id, newUserObj)
+			.then(() => {
+				this.currentUser.firstName = newUserObj.firstName;
+				this.currentUser.lastName = newUserObj.lastName;
+			})
+			.catch(() => {
+				throw 'Error Logging Out';
+			});
+	}
+}
+
+angular.module('app').service('currentIdentity', CurrentIdentity);
