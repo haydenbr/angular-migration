@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { UpgradeModule } from '@angular/upgrade/static';
 
 import { AppComponent } from './app.component';
+import { AdminModule } from './admin';
 
 @NgModule({
 	imports: [
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
 		ReactiveFormsModule,
 		FormsModule,
 		HttpModule,
-		UpgradeModule
+		UpgradeModule,
+		AdminModule
 	],
 	declarations: [AppComponent],
 	providers: [],

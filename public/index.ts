@@ -6,7 +6,6 @@ import './admin/results.component';
 import './admin/create-users.component';
 import './admin/user-list.component';
 import './admin/user-details.component';
-import './admin/parseNames';
 import './nav/nav.component';
 import './security/logout.component';
 import './security/login.component';

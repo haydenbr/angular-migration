@@ -1,4 +1,7 @@
-class NameParserService {
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class NameParserService {
 	parseNames(blobInput: string) {
 		let lines = blobInput.split(/\r?\n/);
 
@@ -12,5 +15,3 @@ class NameParserService {
 		});
 	}
 }
-
-angular.module('app').service('nameParser', NameParserService);
