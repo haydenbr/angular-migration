@@ -1,12 +1,12 @@
 var CreateUsersComponent = (function () {
-    function CreateUsersComponent(parseNames, users, toastr) {
-        this.parseNames = parseNames;
+    function CreateUsersComponent(nameParser, users, toastr) {
+        this.nameParser = nameParser;
         this.users = users;
         this.toastr = toastr;
     }
     CreateUsersComponent.prototype.import = function () {
         var _this = this;
-        var people = this.parseNames(this.namesblob);
+        var people = this.nameParser.parseNames(this.namesblob);
         people.forEach(function (person) {
             return _this.users
                 .createNewUser({

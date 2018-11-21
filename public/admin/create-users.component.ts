@@ -1,10 +1,10 @@
 class CreateUsersComponent {
 	namesblob: string;
 
-	constructor(private parseNames, private users, private toastr) {}
+	constructor(private nameParser, private users, private toastr) {}
 
 	import() {
-		let people = this.parseNames(this.namesblob);
+		let people = this.nameParser.parseNames(this.namesblob);
 
 		people.forEach((person) =>
 			this.users

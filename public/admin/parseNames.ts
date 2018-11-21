@@ -1,14 +1,16 @@
-angular.module('app').factory('parseNames', () => (blobInput) => {
-	let lines = blobInput.split(/\r?\n/);
+class NameParserService {
+	parseNames(blobInput: string) {
+		let lines = blobInput.split(/\r?\n/);
 
-	lines.forEach((line, idx) => {
-		let pieces = line.split('|');
-		lines[idx] = {
-			email: pieces[0],
-			firstName: pieces[1],
-			lastName: pieces[2],
-		};
-	});
+		return lines.map((line) => {
+			let pieces = line.split('|');
+			return {
+				email: pieces[0],
+				firstName: pieces[1],
+				lastName: pieces[2],
+			};
+		});
+	}
+}
 
-	return lines;
-});
+angular.module('app').service('nameParser', NameParserService);
