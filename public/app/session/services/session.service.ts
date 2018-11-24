@@ -32,7 +32,9 @@ export class SessionService {
 		return this.http.post('/api/users/' + userId + '/reviewSession/' + sessionId, {}).toPromise();
 	}
 
-
+	incrementVote(sessionId) {
+		return this.http.put('/api/sessions/' + sessionId + '/incrementVote/', {}).toPromise();
+	}
 }
 
 angular.module('app').service('sessions_v2', downgradeInjectable(SessionService));

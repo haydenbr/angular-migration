@@ -23,7 +23,7 @@ class HomeComponent {
 	}
 
 	voteYes() {
-		this.sessions
+		this.sessions_v2
 			.incrementVote(this.currentSessionToReview.id)
 			.then(() => this.sessions_v2.addReviewedSession(
 				this.currentUser.id,
