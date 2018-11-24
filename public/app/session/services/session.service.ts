@@ -35,6 +35,10 @@ export class SessionService {
 	incrementVote(sessionId) {
 		return this.http.put('/api/sessions/' + sessionId + '/incrementVote/', {}).toPromise();
 	}
+
+	getUnreviewedCount(userId) {
+		return this.http.get('/api/users/' + userId + '/unreviewedSessionCount').map((response) => response.json()).toPromise();
+	}
 }
 
 angular.module('app').service('sessions_v2', downgradeInjectable(SessionService));
