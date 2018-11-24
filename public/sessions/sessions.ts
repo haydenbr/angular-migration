@@ -1,9 +1,9 @@
 class SessionService {
 	constructor(private $http: angular.IHttpService) {}
 
-	getAllSessions() {
-		return this.$http.get('/api/sessions').then((response) => response.data);
-	}
+	// getAllSessions() {
+	// 	return this.$http.get('/api/sessions').then((response) => response.data);
+	// }
 
 	createNewSession(newSession) {
 		return this.$http.post('/api/sessions', newSession);

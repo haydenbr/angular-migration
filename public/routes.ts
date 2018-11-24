@@ -11,8 +11,8 @@ angular.module('app').config($routeProvider => {
 			auth
 				.requireLogin()
 				.then(() => sessions_v2.getSessionsByUser(currentIdentity.currentUser.id)),
-		allSessions: (sessions, auth) =>
-			auth.requireLogin().then(() => sessions.getAllSessions()),
+		allSessions: (sessions_v2: SessionService, auth) =>
+			auth.requireLogin().then(() => sessions_v2.getAllSessions()),
 		allUsers: (users, auth) =>
 			auth.requireLogin().then(() => users.getAllUsers()),
 	};

@@ -10,7 +10,11 @@ export class SessionService {
 	constructor(private http: Http) { }
 
 	getSessionsByUser(userId) {
-		return this.http.get('/api/sessions/user/' + userId).map((response) => response.json()).toPromise().catch((err) => console.log(err));
+		return this.http.get('/api/sessions/user/' + userId).map((response) => response.json()).toPromise();
+	}
+
+	getAllSessions() {
+		return this.http.get('/api/sessions').map((response) => response.json()).toPromise();
 	}
 }
 
