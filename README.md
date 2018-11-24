@@ -13,4 +13,13 @@ based on Joe Eames's [Pluralsight Course](https://www.pluralsight.com/courses/mi
 
 ### Notes
 
--
+#### Important Techniques
+
+- upgrade/downgrade components
+- upgrade/downgrade services
+
+#### Migrating commonly used services
+
+- difficult because they're used in lot of places
+- http ng1 vs ng2
+- stateful services can be complicated
