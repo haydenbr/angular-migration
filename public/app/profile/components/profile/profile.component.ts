@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { downgradeComponent } from "@angular/upgrade/static";
 
@@ -12,9 +12,10 @@ export class ProfileComponent {
 	profileFormGroup: FormGroup;
 	currentIdentity: { currentUser: { firstName: string, lastName: string } };
 
+	// private $location: angular.ILocationService, private toastr, private currentIdentity
 	constructor(
-		fb: FormBuilder
-		// private $location: angular.ILocationService, private toastr, private currentIdentity
+		fb: FormBuilder,
+		@Inject('$location') private $location: any
 	) {
 		this.currentIdentity = { currentUser: { firstName: 'Bob', lastName: 'Bobberson' } };
 		this.profileFormGroup = fb.group({
@@ -33,7 +34,7 @@ export class ProfileComponent {
 	}
 
 	cancel() {
-		// $location.path('/home');
+		this.$location.path('/home');
 	}
 }
 

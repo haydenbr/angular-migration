@@ -5,7 +5,9 @@ import { HttpModule } from '@angular/http';
 import { UpgradeModule } from '@angular/upgrade/static';
 
 import { AppComponent } from './app.component';
+
 import { AdminModule } from './admin';
+import { CoreModule } from './core';
 import { HomeModule } from './home';
 import { ProfileModule } from './profile';
 import { SharedModule } from './shared';
@@ -18,6 +20,7 @@ import { SharedModule } from './shared';
 		HttpModule,
 		UpgradeModule,
 		SharedModule,
+		CoreModule,
 		AdminModule,
 		HomeModule,
 		ProfileModule
