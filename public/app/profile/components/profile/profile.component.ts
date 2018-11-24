@@ -10,14 +10,13 @@ declare var angular: angular.IAngularStatic;
 })
 export class ProfileComponent {
 	profileFormGroup: FormGroup;
-	currentIdentity: { currentUser: { firstName: string, lastName: string } };
 
 	// private $location: angular.ILocationService, private toastr, private currentIdentity
 	constructor(
 		fb: FormBuilder,
-		@Inject('$location') private $location: any
+		@Inject('$location') private $location: any,
+		@Inject('currentIdentity') private currentIdentity: any
 	) {
-		this.currentIdentity = { currentUser: { firstName: 'Bob', lastName: 'Bobberson' } };
 		this.profileFormGroup = fb.group({
 			firstName: [this.currentUser.firstName, Validators.required],
 			lastName: [this.currentUser.lastName, Validators.required]
@@ -29,7 +28,7 @@ export class ProfileComponent {
 	}
 
 	save() {
-		// currentIdentity.updateUser(this.profile);
+		this.currentIdentity.updateUser(this.profileFormGroup.value);
 		// toastr.success('Profile Saved!');
 	}
 

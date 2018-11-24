@@ -1,4 +1,4 @@
-import { NameParserService } from '../app/admin/providers';
+import { NameParserService } from '../app/admin/services';
 
 declare var angular: angular.IAngularStatic;
 

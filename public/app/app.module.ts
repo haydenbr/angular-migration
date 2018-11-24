@@ -10,6 +10,7 @@ import { AdminModule } from './admin';
 import { CoreModule } from './core';
 import { HomeModule } from './home';
 import { ProfileModule } from './profile';
+import { SecurityModule } from './security';
 import { SharedModule } from './shared';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SharedModule } from './shared';
 		CoreModule,
 		AdminModule,
 		HomeModule,
-		ProfileModule
+		ProfileModule,
+		SecurityModule
 	],
 	declarations: [AppComponent],
 	providers: [],
