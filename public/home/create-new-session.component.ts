@@ -1,10 +1,14 @@
+import { SessionService } from '../app/session/services';
+
+declare var angular: angular.IAngularStatic
+
 class CreateNewSessionComponent {
 	title: string;
 	length: string;
 	abstract: string;
 	userSessions: any[];
 
-	constructor(private currentIdentity, private sessions) {}
+	constructor(private currentIdentity, private sessions_v2: SessionService) {}
 
 	create() {
 		let newUserSession = {
@@ -16,9 +20,9 @@ class CreateNewSessionComponent {
 			userId: this.currentIdentity.currentUser.id,
 		};
 
-		this.sessions.createNewSession(newUserSession).then((response) => {
+		this.sessions_v2.createNewSession(newUserSession).then((response) => {
 				console.log(response);
-				this.userSessions.push(response.data);
+				this.userSessions.push(response);
 			}
 		);
 	}

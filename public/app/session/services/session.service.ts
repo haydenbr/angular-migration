@@ -16,6 +16,10 @@ export class SessionService {
 	getAllSessions() {
 		return this.http.get('/api/sessions').map((response) => response.json()).toPromise();
 	}
+
+	createNewSession(newSession) {
+		return this.http.post('/api/sessions', newSession).map((response) => response.json()).toPromise();
+	}
 }
 
 angular.module('app').service('sessions_v2', downgradeInjectable(SessionService));

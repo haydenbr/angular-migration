@@ -1,14 +1,6 @@
 class SessionService {
 	constructor(private $http: angular.IHttpService) {}
 
-	// getAllSessions() {
-	// 	return this.$http.get('/api/sessions').then((response) => response.data);
-	// }
-
-	createNewSession(newSession) {
-		return this.$http.post('/api/sessions', newSession);
-	}
-
 	getNextUnreviewedSession(userId) {
 		return this.$http.get('/api/users/' + userId + '/randomUnreviewedSession');
 	}
