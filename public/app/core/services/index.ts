@@ -1,3 +1,6 @@
-import { LocationService } from './location-ng1.service';
+import { LocationProvider } from './location-ng1.service';
+import { ToastrProvider } from './toastr.service';
 
-export const SERVICES = [LocationService];
+export { ToastrService } from './toastr.service';
+
+export const SERVICES = [LocationProvider, ToastrProvider];
