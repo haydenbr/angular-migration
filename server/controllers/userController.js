@@ -9,7 +9,7 @@ var nextId = getNextId(users);
 
 exports.updateUser = function(req, res) {
   var updatedUser = req.body;
-  
+
   var foundUser = users.find(user => user.id === parseInt(req.params.id));
   if(foundUser) {
     foundUser.firstName = updatedUser.firstName;
@@ -34,19 +34,19 @@ exports.createSession = function(req, res) {
 
 exports.getRandomUnreviewedSession = function(req, res) {
   var userReviewedSessions = reviewedSessionsForUser(req.user.id)
-  
+
   var unreviewedSessions = sessions.filter(session => {
     var reviewedSess = userReviewedSessions.find(revSession => revSession.id === session.id);
-    return !(reviewedSess || session.userId === req.user.id) 
+    return !(reviewedSess || session.userId === req.user.id)
   })
-  
-  res.send(unreviewedSessions[Math.floor(Math.random() * unreviewedSessions.length)]);
-  
+
+	let session = unreviewedSessions[Math.floor(Math.random() * unreviewedSessions.length)]
+  res.send(session);
 }
 
 exports.setReviewedSession = function(req, res) {
   var userReviewedSessions = reviewedSessionsForUser(req.user.id);
-  
+
   var found = userReviewedSessions.find(revSess => revSess.id === parseInt(req.params.sessionId))
   if(!found) {
     userReviewedSessions.push({id: parseInt(req.params.sessionId)});
@@ -57,11 +57,11 @@ exports.setReviewedSession = function(req, res) {
 exports.getUnreviewedSessionCount = function(req, res) {
   var userId = parseInt(req.user.id);
   var userReviewedSessions = reviewedSessionsForUser(userId);
-  
+
   var unreviewedSessions = sessions.filter(session => {
     var isReviewed = userReviewedSessions
       .find(revSess => revSess.id === session.id );
-      
+
     return session.userId !== userId && !isReviewed;
   })
   res.status(200).send({count: unreviewedSessions.length});
@@ -72,12 +72,12 @@ exports.createUser = function(req, res) {
   newUser.id = nextId;
   nextId++;
   users.push(newUser);
-  
+
   reviewedSessions.push({userId: newUser.id, sessions: []})
-  
+
 
   res.send(newUser);
-  res.end(); 
+  res.end();
 }
 
 exports.getUsers = function(req, res) {
@@ -86,5 +86,5 @@ exports.getUsers = function(req, res) {
 }
 
 function reviewedSessionsForUser(userId) {
-  return reviewedSessions.find(item => item.userId === userId).sessions  
+  return reviewedSessions.find(item => item.userId === userId).sessions
 }

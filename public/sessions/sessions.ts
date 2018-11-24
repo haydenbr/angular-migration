@@ -1,10 +1,6 @@
 class SessionService {
 	constructor(private $http: angular.IHttpService) {}
 
-	getNextUnreviewedSession(userId) {
-		return this.$http.get('/api/users/' + userId + '/randomUnreviewedSession');
-	}
-
 	addReviewedSession(userId, sessionId) {
 		return this.$http.post('/api/users/' + userId + '/reviewSession/' + sessionId, {});
 	}

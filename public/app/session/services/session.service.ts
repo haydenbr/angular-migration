@@ -20,6 +20,13 @@ export class SessionService {
 	createNewSession(newSession) {
 		return this.http.post('/api/sessions', newSession).map((response) => response.json()).toPromise();
 	}
+
+	getNextUnreviewedSession(userId) {
+		return this.http.get('/api/users/' + userId + '/randomUnreviewedSession')
+			.map((response) => response.json())
+			.catch(() => Promise.resolve(undefined))
+			.toPromise();
+	}
 }
 
 angular.module('app').service('sessions_v2', downgradeInjectable(SessionService));

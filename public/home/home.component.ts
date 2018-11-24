@@ -1,3 +1,7 @@
+import { SessionService } from '../app/session/services';
+
+declare var angular: angular.IAngularStatic;
+
 class HomeComponent {
 	currentUser: any;
 	currentSessionToReview: any;
@@ -5,6 +9,7 @@ class HomeComponent {
 	constructor(
 		private currentIdentity,
 		private sessions,
+		private sessions_v2: SessionService,
 		private unreviewedSessionCount
 	) {}
 
@@ -14,7 +19,7 @@ class HomeComponent {
 	}
 
 	setNextSessionToReview() {
-		this.sessions.getNextUnreviewedSession(this.currentIdentity.currentUser.id).then((response) => this.currentSessionToReview = response.data);
+		this.sessions_v2.getNextUnreviewedSession(this.currentIdentity.currentUser.id).then((response) => this.currentSessionToReview = response);
 	}
 
 	voteYes() {
