@@ -8,7 +8,6 @@ class HomeComponent {
 
 	constructor(
 		private currentIdentity,
-		private sessions,
 		private sessions_v2: SessionService,
 		private unreviewedSessionCount
 	) {}
