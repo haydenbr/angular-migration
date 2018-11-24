@@ -25,7 +25,7 @@ class HomeComponent {
 	voteYes() {
 		this.sessions
 			.incrementVote(this.currentSessionToReview.id)
-			.then(() => this.sessions.addReviewedSession(
+			.then(() => this.sessions_v2.addReviewedSession(
 				this.currentUser.id,
 				this.currentSessionToReview.id
 			))
@@ -36,7 +36,7 @@ class HomeComponent {
 	};
 
 	voteNo() {
-		this.sessions
+		this.sessions_v2
 			.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
 			.then(() => {
 					this.setNextSessionToReview();

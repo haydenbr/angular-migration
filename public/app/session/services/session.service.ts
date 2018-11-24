@@ -27,6 +27,12 @@ export class SessionService {
 			.catch(() => Promise.resolve(undefined))
 			.toPromise();
 	}
+
+	addReviewedSession(userId, sessionId) {
+		return this.http.post('/api/users/' + userId + '/reviewSession/' + sessionId, {}).toPromise();
+	}
+
+
 }
 
 angular.module('app').service('sessions_v2', downgradeInjectable(SessionService));
