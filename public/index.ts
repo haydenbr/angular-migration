@@ -20,4 +20,3 @@ import './sessions/session-detail.component';
 import './sessions/session-detail-with-votes.component';
 import './components/detail-panel.component';
 import './components/zoom-in.directive';
-import './profile/profile.component';
