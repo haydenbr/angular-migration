@@ -1,12 +1,16 @@
+import { SessionService } from './app/session/services';
+
+declare var angular: angular.IAngularStatic;
+
 angular.module('app').config($routeProvider => {
 	let routeResolvers = {
 		loggedIn: auth => auth.requireLogin(),
 		waitForAuth: auth => auth.waitForAuth(),
 		requireAdmin: auth => auth.requireAdmin(),
-		userSessions: (sessions, currentIdentity, auth) =>
+		userSessions: (sessions_v2: SessionService, currentIdentity, auth) =>
 			auth
 				.requireLogin()
-				.then(() => sessions.getSessionsByUser(currentIdentity.currentUser.id)),
+				.then(() => sessions_v2.getSessionsByUser(currentIdentity.currentUser.id)),
 		allSessions: (sessions, auth) =>
 			auth.requireLogin().then(() => sessions.getAllSessions()),
 		allUsers: (users, auth) =>

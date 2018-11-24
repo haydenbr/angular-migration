@@ -1,10 +1,6 @@
 class SessionService {
 	constructor(private $http: angular.IHttpService) {}
 
-	// getSessionsByUser(userId) {
-	// 	return this.$http.get('/api/sessions/user/' + userId).then((response) => response.data);
-	// }
-
 	getAllSessions() {
 		return this.$http.get('/api/sessions').then((response) => response.data);
 	}

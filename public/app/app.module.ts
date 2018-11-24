@@ -12,6 +12,7 @@ import { HomeModule } from './home';
 import { ProfileModule } from './profile';
 import { SecurityModule } from './security';
 import { SharedModule } from './shared';
+import { SessionModule } from './session';
 
 @NgModule({
 	imports: [
@@ -25,7 +26,8 @@ import { SharedModule } from './shared';
 		AdminModule,
 		HomeModule,
 		ProfileModule,
-		SecurityModule
+		SecurityModule,
+		SessionModule
 	],
 	declarations: [AppComponent],
 	providers: [],

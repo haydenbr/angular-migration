@@ -23,3 +23,4 @@ based on Joe Eames's [Pluralsight Course](https://www.pluralsight.com/courses/mi
 - difficult because they're used in lot of places
 - http ng1 vs ng2
 - stateful services can be complicated
+- how to name services that are in the middle of long term migration, when both an ng1 and ng2 service need to exist for some time?
