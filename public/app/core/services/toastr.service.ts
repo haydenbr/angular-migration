@@ -1,6 +1,6 @@
 import { Provider } from '@angular/core';
 
-const getToastr = ($injector: any) => $injector.get('toastr');
+export const getToastr = ($injector: any) => $injector.get('toastr');
 
 export interface ToastrService {
 	success: (msg: string, title?: string) => void;

@@ -6,7 +6,10 @@
 	"scripts": {
 		"server": "nodemon ./server/server.js -w ./server",
 		"start": "yarn clean-dev && webpack --config webpack/webpack.dev.js --watch --profile --progress",
-		"clean-dev": "rimraf dist/dev/*"
+		"clean-dev": "rimraf dist/dev/*",
+		"clean-prod": "rimraf dist/prod/*",
+		"ngc":  "ngc -p tsconfig.prod.json",
+		"build": "yarn clean-prod && webpack --config webpack/webpack.prod.js --bail --profile --progress"
 	},
 	"keywords": [],
 	"author": "joe eames",
