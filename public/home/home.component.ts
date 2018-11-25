@@ -8,7 +8,7 @@ class HomeComponent {
 
 	constructor(
 		private currentIdentity,
-		private sessions_v2: SessionService,
+		private sessions_downgrade: SessionService,
 		private unreviewedSessionCount
 	) {}
 
@@ -18,13 +18,13 @@ class HomeComponent {
 	}
 
 	setNextSessionToReview() {
-		this.sessions_v2.getNextUnreviewedSession(this.currentIdentity.currentUser.id).then((response) => this.currentSessionToReview = response);
+		this.sessions_downgrade.getNextUnreviewedSession(this.currentIdentity.currentUser.id).then((response) => this.currentSessionToReview = response);
 	}
 
 	voteYes() {
-		this.sessions_v2
+		this.sessions_downgrade
 			.incrementVote(this.currentSessionToReview.id)
-			.then(() => this.sessions_v2.addReviewedSession(
+			.then(() => this.sessions_downgrade.addReviewedSession(
 				this.currentUser.id,
 				this.currentSessionToReview.id
 			))
@@ -35,7 +35,7 @@ class HomeComponent {
 	};
 
 	voteNo() {
-		this.sessions_v2
+		this.sessions_downgrade
 			.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
 			.then(() => {
 					this.setNextSessionToReview();

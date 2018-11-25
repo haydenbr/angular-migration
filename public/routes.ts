@@ -7,12 +7,12 @@ angular.module('app').config($routeProvider => {
 		loggedIn: auth => auth.requireLogin(),
 		waitForAuth: auth => auth.waitForAuth(),
 		requireAdmin: auth => auth.requireAdmin(),
-		userSessions: (sessions_v2: SessionService, currentIdentity, auth) =>
+		userSessions: (sessions_downgrade: SessionService, currentIdentity, auth) =>
 			auth
 				.requireLogin()
-				.then(() => sessions_v2.getSessionsByUser(currentIdentity.currentUser.id)),
-		allSessions: (sessions_v2: SessionService, auth) =>
-			auth.requireLogin().then(() => sessions_v2.getAllSessions()),
+				.then(() => sessions_downgrade.getSessionsByUser(currentIdentity.currentUser.id)),
+		allSessions: (sessions_downgrade: SessionService, auth) =>
+			auth.requireLogin().then(() => sessions_downgrade.getAllSessions()),
 		allUsers: (users, auth) =>
 			auth.requireLogin().then(() => users.getAllUsers()),
 	};

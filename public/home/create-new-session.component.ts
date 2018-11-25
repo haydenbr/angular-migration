@@ -8,7 +8,7 @@ class CreateNewSessionComponent {
 	abstract: string;
 	userSessions: any[];
 
-	constructor(private currentIdentity, private sessions_v2: SessionService) {}
+	constructor(private currentIdentity, private sessions_downgrade: SessionService) {}
 
 	create() {
 		let newUserSession = {
@@ -20,7 +20,7 @@ class CreateNewSessionComponent {
 			userId: this.currentIdentity.currentUser.id,
 		};
 
-		this.sessions_v2.createNewSession(newUserSession).then((response) => {
+		this.sessions_downgrade.createNewSession(newUserSession).then((response) => {
 				console.log(response);
 				this.userSessions.push(response);
 			}

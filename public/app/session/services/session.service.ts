@@ -41,4 +41,4 @@ export class SessionService {
 	}
 }
 
-angular.module('app').service('sessions_v2', downgradeInjectable(SessionService));
+angular.module('app').service('sessions_downgrade', downgradeInjectable(SessionService));
