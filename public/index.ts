@@ -17,5 +17,4 @@ import './home/create-new-session.component';
 import './sessions/unreviewedSessionCount';
 import './sessions/session-detail.component';
 import './sessions/session-detail-with-votes.component';
-import './components/detail-panel.component';
 import './components/zoom-in.directive';

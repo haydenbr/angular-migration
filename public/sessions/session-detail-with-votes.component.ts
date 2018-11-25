@@ -2,7 +2,7 @@ angular.module('app').component('sessionDetailWithVotes', {
 	templateUrl: './session-detail-with-votes.component.html',
 	bindings: {
 		session: '=',
-		initialCollapsed: '@',
+		initialCollapsed: '<',
 	},
 	controller: function() {},
 });

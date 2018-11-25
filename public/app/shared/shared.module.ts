@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { COMPONENTS } from './components';
+import { COMPONENTS, ENTRY_COMPONENTS } from './components';
 import { PIPES } from './pipes';
 
 const modules = [CommonModule, ReactiveFormsModule];
@@ -12,5 +12,6 @@ const modules = [CommonModule, ReactiveFormsModule];
 	exports: [modules, PIPES, COMPONENTS],
 	declarations: [PIPES, COMPONENTS],
 	providers: [],
+	entryComponents: [ENTRY_COMPONENTS]
 })
 export class SharedModule {}
