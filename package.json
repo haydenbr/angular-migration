@@ -6,8 +6,7 @@
 	"scripts": {
 		"server": "nodemon ./server/server.js -w ./server",
 		"start": "yarn clean-dev && webpack --config webpack/webpack.dev.js --watch --profile --progress",
-		"clean-dev": "rimraf dist/dev/*",
-		"test": "karma start angularjs-karma.conf.js"
+		"clean-dev": "rimraf dist/dev/*"
 	},
 	"keywords": [],
 	"author": "joe eames",
