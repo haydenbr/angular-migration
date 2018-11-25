@@ -1,9 +1,9 @@
-import { UpgradeModule } from '@angular/upgrade/static';
+import { enableProdMode } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
 
 import { AppModuleNgFactory } from '../prod/public/app/app.module.ngfactory';
+import { bootstrapApp } from './bootstrap';
 
-platformBrowser().bootstrapModuleFactory(AppModuleNgFactory).then((platformRef) => {
-	const upgrade = platformRef.injector.get(UpgradeModule);
-	upgrade.bootstrap(document.documentElement, ['app']);
-});
+enableProdMode();
+
+platformBrowser().bootstrapModuleFactory(AppModuleNgFactory).then((platformRef) => bootstrapApp(platformRef));

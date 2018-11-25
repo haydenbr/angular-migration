@@ -4,12 +4,12 @@
 	"description": "lightning talk voting app",
 	"main": "index.js",
 	"scripts": {
-		"server": "nodemon ./server/server.js -w ./server",
+		"serve": "nodemon ./server/server.js -w ./server",
 		"start": "yarn clean-dev && webpack --config webpack/webpack.dev.js --watch --profile --progress",
 		"clean-dev": "rimraf dist/dev/*",
 		"clean-prod": "rimraf dist/prod/*",
 		"ngc":  "ngc -p tsconfig.prod.json",
-		"build": "yarn clean-prod && webpack --config webpack/webpack.prod.js --bail --profile --progress"
+		"build": "yarn clean-prod && webpack --config webpack/webpack.ng1.prod.js --bail --profile --progress && webpack --config webpack/webpack.prod.js --bail --profile --progress"
 	},
 	"keywords": [],
 	"author": "joe eames",
@@ -44,7 +44,7 @@
 	},
 	"devDependencies": {
 		"@angular/compiler-cli": "4.3.0",
-		"@ngtools/webpack": "1.5.5",
+		"@ngtools/webpack": "1.6.8",
 		"@types/angular": "1.6.26",
 		"@types/node": "6.0.45",
 		"@types/toastr": "^2.1.35",
