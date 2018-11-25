@@ -7,7 +7,7 @@
 		"server": "nodemon ./server/server.js -w ./server",
 		"start": "yarn clean-dev && webpack --config webpack/webpack.dev.js --watch --profile --progress",
 		"clean-dev": "rimraf dist/dev/*",
-		"test": "karma start"
+		"test": "karma start angularjs-karma.conf.js"
 	},
 	"keywords": [],
 	"author": "joe eames",
@@ -23,6 +23,7 @@
 		"@angular/router": "4.3.0",
 		"@angular/upgrade": "4.3.0",
 		"angular": "1.7.5",
+		"angular-mocks": "^1.7.5",
 		"angular-route": "^1.7.5",
 		"body-parser": "^1.15.0",
 		"cookie-parser": "^1.4.1",
@@ -54,6 +55,7 @@
 		"karma": "^0.13.22",
 		"karma-chrome-launcher": "^0.2.3",
 		"karma-jasmine": "^0.3.8",
+		"karma-mocha-reporter": "^2.2.5",
 		"karma-ng-html2js-preprocessor": "^0.2.2",
 		"nodemon": "^1.18.6",
 		"null-loader": "0.1.1",
