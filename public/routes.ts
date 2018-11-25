@@ -25,7 +25,7 @@ angular.module('app').config($routeProvider => {
 			},
 		})
 		.when('/admin/results', {
-			template: '<results all-sessions="$resolve.allSessions"></results>',
+			template: '<results [all-sessions]="$resolve.allSessions"></results>',
 			resolve: {
 				admin: routeResolvers.requireAdmin,
 				allSessions: routeResolvers.allSessions,
