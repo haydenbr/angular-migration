@@ -26,9 +26,11 @@ based on Joe Eames's [Pluralsight Course](https://www.pluralsight.com/courses/mi
 - how to name services that are in the middle of long term migration, when both an ng1 and ng2 service need to exist for some time?
 - make the consumer of the service aks for a promise. the service shouldn't care itself
 
-####
+#### Routing
 
 - routing: how to maintain a default route?
+- routerLink can link to/from angular2 route (component) and another ng1 or ng2 route or component but you cant go from angular
+- routerLink can't go between two ng1 routes or components
 
 
 #### Organization
