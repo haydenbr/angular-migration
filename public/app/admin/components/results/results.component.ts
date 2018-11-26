@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { downgradeComponent } from '@angular/upgrade/static';
+import { ActivatedRoute } from '@angular/router';
 
 declare var angular: angular.IAngularStatic;
 
@@ -8,12 +9,15 @@ declare var angular: angular.IAngularStatic;
 	templateUrl: 'results.component.html'
 })
 export class ResultsComponent implements OnInit {
-	@Input() allSessions: any[];
+	allSessions: any[];
 
-	constructor() { }
+	constructor(private route: ActivatedRoute) {}
 
 	ngOnInit() {
-		this.allSessions.sort((session1, session2) => session2.voteCount - session1.voteCount);
+		this.route.data.take(1).subscribe((data) => {
+			this.allSessions = data.sessions;
+			this.allSessions.sort((session1, session2) => session2.voteCount - session1.voteCount);
+		});
 	}
 }
 

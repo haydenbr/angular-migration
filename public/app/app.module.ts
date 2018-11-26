@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { UpgradeModule } from '@angular/upgrade/static';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
 
 import { AdminModule } from './admin';
 import { CoreModule } from './core';
@@ -23,6 +24,7 @@ import { SessionModule } from './session';
 		UpgradeModule,
 		SharedModule,
 		CoreModule,
+		AppRoutingModule,
 		AdminModule,
 		HomeModule,
 		ProfileModule,

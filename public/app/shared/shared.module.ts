@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { COMPONENTS, ENTRY_COMPONENTS } from './components';
 import { PIPES } from './pipes';
 
-const modules = [CommonModule, ReactiveFormsModule];
+const modules = [CommonModule, ReactiveFormsModule, RouterModule];
 
 @NgModule({
 	imports: [modules],
