@@ -1,5 +1,38 @@
-import { Provider } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { downgradeInjectable } from '@angular/upgrade/static';
 
-export const getCurrentIdentity = ($injector: any) => $injector.get('currentIdentity');
+declare var angular: angular.IAngularStatic;
 
-export const CurrentIdentityService: Provider = { provide: 'currentIdentity', useFactory: getCurrentIdentity, deps: ['$injector'] };
+@Injectable()
+export class CurrentIdentityService {
+	currentUser: any;
+
+	constructor(private http: Http) {}
+
+	setUser(user: any) {
+		this.currentUser = user;
+	}
+
+	clearUser() {
+		this.currentUser = undefined;
+	}
+
+	authenticated() {
+		return !!this.currentUser;
+	}
+
+	updateUser(newUserObj) {
+		return this.http
+			.put('/api/users/' + this.currentUser.id, newUserObj)
+			.do(() => {
+				this.currentUser.firstName = newUserObj.firstName;
+				this.currentUser.lastName = newUserObj.lastName;
+			})
+			.catch(() => {
+				throw 'Error Logging Out';
+			});
+	}
+}
+
+angular.module('app').service('currentIdentity', downgradeInjectable(CurrentIdentityService));

@@ -9,7 +9,6 @@ import './nav/nav.component';
 import './security/logout.component';
 import './security/login.component';
 import './security/auth';
-import './security/currentIdentity';
 import './security/users';
 import './home/home.component';
 import './home/create-new-session.component';

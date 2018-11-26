@@ -2,15 +2,17 @@ import { Injectable, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { downgradeInjectable } from '@angular/upgrade/static';
 
+import { CurrentIdentityService } from './current-identity.service';
+
 declare var angular: angular.IAngularStatic;
 
 @Injectable()
 export class AuthService {
 
 	constructor(
-		@Inject('currentIdentity') private currentIdentity: any,
+		private currentIdentity: CurrentIdentityService,
 		private http: Http
-	) { }
+	) {}
 
 	requireAdmin() {
 		return this.waitForAuth().map(() =>

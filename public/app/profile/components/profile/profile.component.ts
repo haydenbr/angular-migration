@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { downgradeComponent } from "@angular/upgrade/static";
 
 import { ToastrService } from '../../../core/services';
+import { CurrentIdentityService } from '../../../security/services';
 
 declare var angular: angular.IAngularStatic;
 
@@ -16,7 +17,7 @@ export class ProfileComponent {
 	constructor(
 		fb: FormBuilder,
 		@Inject('$location') private $location: any,
-		@Inject('currentIdentity') private currentIdentity: any,
+		private currentIdentity: CurrentIdentityService,
 		@Inject('toastr') private toastr: ToastrService
 	) {
 		this.profileFormGroup = fb.group({
@@ -30,7 +31,7 @@ export class ProfileComponent {
 	}
 
 	save() {
-		this.currentIdentity.updateUser(this.profileFormGroup.value);
+		this.currentIdentity.updateUser(this.profileFormGroup.value).subscribe();
 		// this.toastr.success('Profile Saved!');
 	}
 
