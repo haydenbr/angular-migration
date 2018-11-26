@@ -2,12 +2,10 @@ class UserDetailsController {
 	user: any;
 	allUsers: any[];
 
-	constructor(private $routeParams) {
-		this.user = this.allUsers.find((user) => user.id === parseInt(this.$routeParams.id));
-	}
+	constructor(private $routeParams) {}
 
 	$onInit() {
-		console.log('hey man', this.allUsers);
+		this.user = this.allUsers.find((user) => user.id === parseInt(this.$routeParams.id));
 	}
 }
 

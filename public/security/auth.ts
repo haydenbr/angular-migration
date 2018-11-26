@@ -32,15 +32,6 @@ class AuthService {
 			() => this.currentIdentity.authenticated() || Promise.reject('AUTH_REQUIRED')
 		);
 	}
-
-	requireAdmin() {
-		return this.waitForAuth().then(
-			() =>
-				(this.currentIdentity.authenticated() &&
-					this.currentIdentity.currentUser.isAdmin) ||
-				Promise.reject('AUTH_REQUIRED')
-		);
-	}
 }
 
 angular.module('app').service('auth', AuthService);

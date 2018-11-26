@@ -1,4 +1,5 @@
 import { SessionService } from './app/session/services';
+import { AuthService } from './app/security/services';
 
 declare var angular: angular.IAngularStatic;
 
@@ -6,7 +7,7 @@ angular.module('app').config($routeProvider => {
 	let routeResolvers = {
 		loggedIn: auth => auth.requireLogin(),
 		waitForAuth: auth => auth.waitForAuth(),
-		requireAdmin: auth => auth.requireAdmin(),
+		requireAdmin: (auth_downgraded: AuthService) => auth_downgraded.requireAdmin().toPromise().then((result) => result ? Promise.resolve(result) : Promise.reject('NOT_AUTHORIZED')),
 		userSessions: (sessions_downgrade: SessionService, currentIdentity, auth) =>
 			auth
 				.requireLogin()
@@ -24,13 +25,6 @@ angular.module('app').config($routeProvider => {
 				currentAuth: routeResolvers.waitForAuth,
 			},
 		})
-		// .when('/admin/results', {
-		// 	template: '<results [all-sessions]="$resolve.allSessions"></results>',
-		// 	resolve: {
-		// 		admin: routeResolvers.requireAdmin,
-		// 		allSessions: routeResolvers.allSessions,
-		// 	},
-		// })
 		.when('/admin/users/:id', {
 			template: '<user-details all-users="$resolve.allUsers"></user-details>',
 			resolve: {
