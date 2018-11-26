@@ -4,8 +4,6 @@ import { downgradeInjectable } from '@angular/upgrade/static';
 
 import { CurrentIdentityService } from './current-identity.service';
 
-declare var angular: angular.IAngularStatic;
-
 @Injectable()
 export class AuthService {
 
@@ -43,5 +41,3 @@ export class AuthService {
 			});
 	}
 }
-
-angular.module('app').service('auth_downgraded', downgradeInjectable(AuthService));

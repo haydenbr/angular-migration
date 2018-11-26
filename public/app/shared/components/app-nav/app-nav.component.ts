@@ -4,8 +4,6 @@ import { CurrentIdentityService } from '../../../security/services';
 import { UnreviewedSessinCountService } from '../../../session/services';
 import { downgradeComponent } from '@angular/upgrade/static';
 
-declare var angular: angular.IAngularStatic;
-
 @Component({
 	selector: 'app-nav',
 	templateUrl: 'app-nav.component.html'
@@ -34,5 +32,3 @@ export class AppNavComponent implements OnInit {
 		return this.currentUser.firstName.lastName;
 	}
 }
-
-angular.module('app').directive('nav', downgradeComponent({ component:AppNavComponent  }));

@@ -3,5 +3,4 @@ import { SessionDetailWithVotesComponent } from './session-detail-with-votes/ses
 
 export { ResultsComponent } from './results/results.component';
 
-export const ENTRY_COMPONENTS = [ResultsComponent];
-export const COMPONENTS = [...ENTRY_COMPONENTS, SessionDetailWithVotesComponent];
+export const COMPONENTS = [ResultsComponent, SessionDetailWithVotesComponent];

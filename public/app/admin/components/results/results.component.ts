@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { downgradeComponent } from '@angular/upgrade/static';
 import { ActivatedRoute } from '@angular/router';
 
-declare var angular: angular.IAngularStatic;
-
 @Component({
 	selector: 'results',
 	templateUrl: 'results.component.html'
@@ -20,5 +18,3 @@ export class ResultsComponent implements OnInit {
 		});
 	}
 }
-
-angular.module('app').directive('results', downgradeComponent({ component: ResultsComponent }))

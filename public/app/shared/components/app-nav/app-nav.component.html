@@ -8,7 +8,7 @@
         <li><a href="#/createsession">Create Session</a></li>
         <li><a href="#/profile">Profile</a></li>
         <li><a href="#/admin/createusers" *ngIf="currentUser.isAdmin">Create Users</a></li>
-        <li><a href="#/admin/results" *ngIf="currentUser.isAdmin">Results</a></li>
+        <li><a [routerLink]="['/admin/results']" *ngIf="currentUser.isAdmin">Results</a></li>
         <li><a href="#/users" *ngIf="currentUser.isAdmin">Users</a></li>
         <li><a href="#/logout">Logout</a></li>
       </ul>

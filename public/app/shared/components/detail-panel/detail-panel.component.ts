@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { downgradeComponent } from '@angular/upgrade/static';
 
-declare var angular: angular.IAngularStatic;
-
 @Component({
 	selector: 'detail-panel',
 	templateUrl: './detail-panel.component.html'
@@ -20,5 +18,3 @@ export class DetailPanelComponent implements OnInit {
 		this.collapsed = !this.collapsed;
 	}
 }
-
-angular.module('app').directive('detailPanel', downgradeComponent({ component: DetailPanelComponent }));

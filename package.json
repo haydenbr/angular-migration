@@ -9,7 +9,7 @@
 		"clean-dev": "rimraf dist/dev/*",
 		"clean-prod": "rimraf dist/prod/*",
 		"ngc":  "ngc -p tsconfig.prod.json",
-		"build": "yarn clean-prod && webpack --config webpack/webpack.ng1.prod.js --bail --profile --progress && webpack --config webpack/webpack.prod.js --bail --profile --progress"
+		"build": "yarn clean-prod && webpack --config webpack/webpack.prod.js --bail --profile --progress"
 	},
 	"keywords": [],
 	"author": "joe eames",

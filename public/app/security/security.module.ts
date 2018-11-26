@@ -10,7 +10,6 @@ import { SERVICES } from './services';
 	imports: [SharedModule, SecurityRoutingModule],
 	exports: [],
 	declarations: [COMPONENTS],
-	providers: [SERVICES],
-	entryComponents: [COMPONENTS]
+	providers: [SERVICES]
 })
 export class SecurityModule { }

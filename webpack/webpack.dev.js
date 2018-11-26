@@ -11,7 +11,6 @@ const ENV = process.env.NODE_ENV;
 module.exports = {
 	entry: {
 		pollyfills: './public/pollyfills.ts',
-		ng1: './public/index.ts',
 		app: './public/main.ts'
 	},
 	output: {

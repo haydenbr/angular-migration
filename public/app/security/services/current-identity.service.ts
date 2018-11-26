@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { downgradeInjectable } from '@angular/upgrade/static';
 
-declare var angular: angular.IAngularStatic;
-
 @Injectable()
 export class CurrentIdentityService {
 	currentUser: any;
@@ -34,5 +32,3 @@ export class CurrentIdentityService {
 			});
 	}
 }
-
-angular.module('app').service('currentIdentity', downgradeInjectable(CurrentIdentityService));

@@ -38,6 +38,6 @@ export class LoginComponent implements OnInit {
 	}
 
 	private navigateHome() {
-		return this.router.navigate(['home']);
+		return this.router.navigate(['admin', 'results']);
 	}
 }

@@ -31,7 +31,24 @@ based on Joe Eames's [Pluralsight Course](https://www.pluralsight.com/courses/mi
 - routing: how to maintain a default route?
 - routerLink can link to/from angular2 route (component) and another ng1 or ng2 route or component but you cant go from angular
 - routerLink can't go between two ng1 routes or components
+- how to organize urls in route handling strategy in a nice way?
 
+##### migrating routes
+
+- migrate and downgrade component
+- rewrite/migrate any resolvers or route guards
+- move route definition from ng1 to ng2
+- dont forget to add the new url to route handling strategy
+
+##### Removing AngularJS!!!
+
+- define default route in ng2 router
+- remove urlHandlerStrategy
+- remove any leftover angularjs upgrade services
+- dont need to add routing components to entry components in module declaration
+- remove ng-view
+- get rid of any hybrid bootstrapping code in main.ts
+- remove ng1 build scripts, code, and config
 
 #### Organization
 

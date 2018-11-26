@@ -4,8 +4,6 @@ import { CurrentIdentityService } from '../../security/services';
 import { SessionService } from './session.service';
 import { downgradeInjectable } from '@angular/upgrade/static';
 
-declare var angular: angular.IAngularStatic;
-
 @Injectable()
 export class UnreviewedSessinCountService {
 	value = 0;
@@ -18,5 +16,3 @@ export class UnreviewedSessinCountService {
 			.then((response) => this.value = response.count);
 	}
 }
-
-angular.module('app').service('unreviewedSessionCount', downgradeInjectable(UnreviewedSessinCountService));

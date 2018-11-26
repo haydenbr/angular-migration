@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { downgradeInjectable } from '@angular/upgrade/static';
 
-declare var angular: angular.IAngularStatic;
-
 @Injectable()
 export class SessionService {
 
@@ -40,5 +38,3 @@ export class SessionService {
 		return this.http.get('/api/users/' + userId + '/unreviewedSessionCount').map((response) => response.json()).toPromise();
 	}
 }
-
-angular.module('app').service('sessions_downgrade', downgradeInjectable(SessionService));

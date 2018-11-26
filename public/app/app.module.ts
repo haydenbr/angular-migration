@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app.routing.module';
 import { AdminModule } from './admin';
 import { CoreModule } from './core';
 import { HomeModule } from './home';
-import { ProfileModule } from './profile';
 import { SecurityModule } from './security';
 import { SharedModule } from './shared';
 import { SessionModule } from './session';
@@ -27,13 +26,11 @@ import { SessionModule } from './session';
 		AppRoutingModule,
 		AdminModule,
 		HomeModule,
-		ProfileModule,
 		SecurityModule,
 		SessionModule
 	],
 	declarations: [AppComponent],
 	providers: [],
-	bootstrap: [AppComponent],
-	entryComponents: []
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
