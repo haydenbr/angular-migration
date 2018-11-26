@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { UpgradeModule } from '@angular/upgrade/static';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
@@ -27,7 +28,10 @@ import { SessionModule } from './session';
 		AdminModule,
 		HomeModule,
 		SecurityModule,
-		SessionModule
+		SessionModule,
+		RouterModule.forChild([
+			{ path: '**', redirectTo: '/admin/results', pathMatch: 'full' }
+		])
 	],
 	declarations: [AppComponent],
 	providers: [],

@@ -5,7 +5,8 @@ import { LoginComponent } from './components';
 import { WaitForAuthResolver } from './services';
 
 const routes: Routes = [
-	{ path: 'login', component: LoginComponent, resolve: { waitForAuth: WaitForAuthResolver } }
+	{ path: 'login', component: LoginComponent, resolve: { waitForAuth: WaitForAuthResolver } },
+	{ path: '', redirectTo: '/login', pathMatch: 'full' }
 ]
 
 @NgModule({
