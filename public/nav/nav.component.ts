@@ -1,10 +1,10 @@
-angular.module('app').component('nav', {
-	templateUrl: './nav.component.html',
-	bindings: {},
-	controller: function(currentIdentity, unreviewedSessionCount) {
-		this.currentUser = currentIdentity.currentUser;
+// angular.module('app').component('nav', {
+// 	templateUrl: './nav.component.html',
+// 	bindings: {},
+// 	controller: function(currentIdentity, unreviewedSessionCount) {
+// 		this.currentUser = currentIdentity.currentUser;
 
-		unreviewedSessionCount.updateUnreviewedSessionCount();
-		this.unreviewedSessionCount = unreviewedSessionCount;
-	},
-});
+// 		unreviewedSessionCount.updateUnreviewedSessionCount();
+// 		this.unreviewedSessionCount = unreviewedSessionCount;
+// 	},
+// });
