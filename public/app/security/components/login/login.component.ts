@@ -1,10 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { downgradeComponent } from '@angular/upgrade/static';
+import { Router } from '@angular/router';
 
 import { AuthService, CurrentIdentityService } from '../../services';
-
-declare var angular: angular.IAngularStatic;
 
 @Component({
 	selector: 'login',
@@ -14,14 +12,14 @@ export class LoginComponent implements OnInit {
 	emailFormContrl = new FormControl();
 
 	constructor(
-		@Inject('$location') private $location: any,
+		private router: Router,
 		private currentIdentity: CurrentIdentityService,
 		private auth: AuthService
 	) {}
 
 	ngOnInit() {
 		if (this.currentIdentity.authenticated()) {
-			this.$location.path('/home');
+			this.navigateHome();
 		}
 	}
 
@@ -36,8 +34,10 @@ export class LoginComponent implements OnInit {
 				password: 'pass',
 			})
 			// .catch((err) => this.toastr.error(err));
-			.subscribe(() => this.$location.path('/home'))
-	};
-}
+			.subscribe(() => this.navigateHome())
+	}
 
-angular.module('app').directive('login', downgradeComponent({ component: LoginComponent }));
+	private navigateHome() {
+		return this.router.navigate(['home']);
+	}
+}

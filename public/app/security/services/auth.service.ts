@@ -23,11 +23,14 @@ export class AuthService {
 	waitForAuth() {
 		return this.http.get('/api/currentIdentity')
 		.map((response) => {
-			let user = response.json();
+			let user;
+			try {
+				user = response.json();
+			} catch (e) {}
+
 			if (!!user) {
 				this.currentIdentity.setUser(user);
 			}
-			return this.currentIdentity;
 		});
 	}
 

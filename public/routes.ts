@@ -65,12 +65,6 @@ angular.module('app').config($routeProvider => {
 				userSessions: routeResolvers.userSessions,
 			},
 		})
-		.when('/login', {
-			template: '<login></login>',
-			resolve: {
-				currentAuth: routeResolvers.waitForAuth,
-			},
-		})
 		.when('/logout', {
 			template: '<logout></logout>',
 		})
