@@ -30,6 +30,15 @@ export class AuthService {
 			return this.currentIdentity;
 		});
 	}
+
+	login(credentials) {
+		return this.http
+			.post('/api/login', credentials)
+			.do((response) => this.currentIdentity.setUser(response.json().user))
+			.catch(() => {
+				throw 'Invalid Credentials';
+			});
+	}
 }
 
 angular.module('app').service('auth_downgraded', downgradeInjectable(AuthService));

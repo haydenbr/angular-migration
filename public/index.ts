@@ -6,7 +6,6 @@ import './admin/create-users.component';
 import './admin/user-list.component';
 import './admin/user-details.component';
 import './security/logout.component';
-import './security/login.component';
 import './security/auth';
 import './security/users';
 import './home/home.component';
