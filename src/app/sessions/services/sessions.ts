@@ -2,7 +2,7 @@ import * as angular from 'angular';
 
 export class SessionService {
 	static $inject = ['$http'];
-	constructor (private $http: angular.IHttpService, $q) {}
+	constructor (private $http: angular.IHttpService) {}
 
 	getSessionsByUser(userId) {
 		return this.$http.get('http://localhost:8801/api/sessions/user/' + userId, { withCredentials: true }).then((response) => response.data);

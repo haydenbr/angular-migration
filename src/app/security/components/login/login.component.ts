@@ -3,6 +3,7 @@ import * as angular from 'angular';
 export class LoginComponent {
 	public email: string;
 
+	static $inject = ['$location', 'currentIdentity', 'auth', 'toastr']
 	constructor(private $location, private currentIdentity, private auth, private toastr) {}
 
 	$onInit() {
