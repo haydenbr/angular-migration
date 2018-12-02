@@ -5,9 +5,11 @@ angular.module('app').component('results', {
 	bindings: {
 		allSessions: '<'
 	},
-	controller: function() {
-		this.allSessions && this.allSessions.sort((session1, session2) => {
-			return session2.voteCount - session1.voteCount;
-		});
-	},
+	controller: resultsCtrl,
 });
+
+function resultsCtrl() {
+	this.allSessions && this.allSessions.sort((session1, session2) => {
+		return session2.voteCount - session1.voteCount;
+	});
+}
