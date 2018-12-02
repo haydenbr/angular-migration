@@ -4,6 +4,11 @@ class HomeComponent {
 	currentUser: any;
 	currentSessionToReview: any;
 
+	static $inject = [
+		'currentIdentity',
+		'sessions',
+		'unreviewedSessionCount'
+	];
 	constructor(
 		private currentIdentity,
 		private sessions,

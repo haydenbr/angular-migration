@@ -1,5 +1,18 @@
 import * as angular from 'angular';
 
+export class UnreviewedTalkComponent {
+	voteYes: () => void;
+	voteNo: () => void;
+
+	yes() {
+		this.voteYes();
+	};
+
+	no() {
+		this.voteNo();
+	};
+}
+
 angular.module('app').component('unreviewedTalk', {
 	templateUrl: './unreviewed-talk.component.html',
 	bindings: {
@@ -7,13 +20,5 @@ angular.module('app').component('unreviewedTalk', {
 		voteYes: '&',
 		voteNo: '&',
 	},
-	controller: function() {
-		this.yes = function() {
-			this.voteYes();
-		};
-
-		this.no = function() {
-			this.voteNo();
-		};
-	},
+	controller: UnreviewedTalkComponent
 });

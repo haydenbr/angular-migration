@@ -6,6 +6,7 @@ class CreateNewSessionComponent {
 	abstract: string;
 	userSessions: any[];
 
+	static $inject = ['currentIdentity', 'sessions'];
 	constructor(private currentIdentity, private sessions) {}
 
 	create() {
