@@ -1,5 +1,18 @@
 import * as angular from 'angular';
 
+export class DetailPanelClass {
+	collapsed: any;
+	initialCollapsed: any;
+
+	$onInit() {
+		this.collapsed = (this.initialCollapsed === 'true');
+	}
+
+	collapse() {
+		this.collapsed = !this.collapsed;
+	}
+}
+
 angular.module('app').component('detailPanel',{
     transclude: true,
     templateUrl: './detail-panel.component.html',
@@ -7,11 +20,5 @@ angular.module('app').component('detailPanel',{
       title: '@',
       initialCollapsed: '@collapsed'
     },
-    controller: function() {
-      this.collapsed = (this.initialCollapsed === 'true');
-
-      this.collapse = function() {
-        this.collapsed = !this.collapsed;
-      }
-  }
+    controller: DetailPanelClass
 });
