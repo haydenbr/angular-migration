@@ -1,23 +1,36 @@
 import * as angular from 'angular';
 
-angular.module('app').factory('sessions', ($http: angular.IHttpService, $q) => ({
-	getSessionsByUser: (userId) =>
-		$http.get('http://localhost:8801/api/sessions/user/' + userId, { withCredentials: true }).then((response) => response.data),
+export class SessionService {
+	static $inject = ['$http'];
+	constructor (private $http: angular.IHttpService, $q) {}
 
-	getAllSessions: () =>
-		$http.get('http://localhost:8801/api/sessions', { withCredentials: true }).then((response) => response.data),
+	getSessionsByUser(userId) {
+		return this.$http.get('http://localhost:8801/api/sessions/user/' + userId, { withCredentials: true }).then((response) => response.data);
+	}
 
-	createNewSession: (newSession) => $http.post('http://localhost:8801/api/sessions', newSession, { withCredentials: true }),
+	getAllSessions() {
+		return this.$http.get('http://localhost:8801/api/sessions', { withCredentials: true }).then((response) => response.data);
+	}
 
-	getNextUnreviewedSession: (userId) =>
-		$http.get('http://localhost:8801/api/users/' + userId + '/randomUnreviewedSession', { withCredentials: true }),
+	createNewSession(newSession) {
+		return this.$http.post('http://localhost:8801/api/sessions', newSession, { withCredentials: true });
+	}
 
-	addReviewedSession: (userId, sessionId) =>
-		$http.post('http://localhost:8801/api/users/' + userId + '/reviewSession/' + sessionId, {}, { withCredentials: true }),
+	getNextUnreviewedSession(userId) {
+		return this.$http.get('http://localhost:8801/api/users/' + userId + '/randomUnreviewedSession', { withCredentials: true });
+	}
 
-	incrementVote: (sessionId) =>
-		$http.put('http://localhost:8801/api/sessions/' + sessionId + '/incrementVote/', {}, { withCredentials: true }),
+	addReviewedSession(userId, sessionId) {
+		return this.$http.post('http://localhost:8801/api/users/' + userId + '/reviewSession/' + sessionId, {}, { withCredentials: true })
+	}
 
-	getUnreviewedCount: (userId) =>
-		$http.get('http://localhost:8801/api/users/' + userId + '/unreviewedSessionCount', { withCredentials: true }),
-}));
+	incrementVote(sessionId) {
+		return this.$http.put('http://localhost:8801/api/sessions/' + sessionId + '/incrementVote/', {}, { withCredentials: true })
+	}
+
+	getUnreviewedCount(userId) {
+		return this.$http.get('http://localhost:8801/api/users/' + userId + '/unreviewedSessionCount', { withCredentials: true });
+	}
+}
+
+angular.module('app').service('sessions', SessionService);

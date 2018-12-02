@@ -1,13 +1,18 @@
 import * as angular from 'angular';
 
+export class UnreviewedSessionCount {
+	value = 0;
+
+	static $inject = ['sessions', 'currentIdentity'];
+	constructor(private sessions, private currentIdentity) {}
+
+	updateUnreviewedSessionCount() {
+		return this.sessions
+			.getUnreviewedCount(this.currentIdentity.currentUser.id)
+			.then((response) => this.value = response.data.count);
+	}
+}
+
 angular
 	.module('app')
-	.factory('unreviewedSessionCount', (sessions, currentIdentity) => ({
-		value: 0,
-
-		updateUnreviewedSessionCount: function() {
-			sessions
-				.getUnreviewedCount(currentIdentity.currentUser.id)
-				.then((response) => this.value = response.data.count);
-		},
-	}));
+	.service('unreviewedSessionCount', UnreviewedSessionCount);
