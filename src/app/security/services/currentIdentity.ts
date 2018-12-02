@@ -11,7 +11,7 @@ export class CurrentIdentity {
 	}
 
 	clearUser() {
-		this.currentUser = null;
+		this.currentUser = undefined;
 	}
 
 	authenticated() {
