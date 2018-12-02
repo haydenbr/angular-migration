@@ -14,7 +14,7 @@ angular.module('app').factory('currentIdentity', function($http) {
 		},
 		updateUser: function(newUserObj) {
 			return $http
-				.put('http://localhost:8801/api/users/' + this.currentUser.id, newUserObj)
+				.put('http://localhost:8801/api/users/' + this.currentUser.id, newUserObj, { withCredentials: true })
 				.then(() => {
 					this.currentUser.firstName = newUserObj.firstName;
 					this.currentUser.lastName = newUserObj.lastName;

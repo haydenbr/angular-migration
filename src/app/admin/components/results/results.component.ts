@@ -6,7 +6,7 @@ angular.module('app').component('results', {
 		allSessions: '<'
 	},
 	controller: function() {
-		this.allSessions.sort((session1, session2) => {
+		this.allSessions && this.allSessions.sort((session1, session2) => {
 			return session2.voteCount - session1.voteCount;
 		});
 	},
