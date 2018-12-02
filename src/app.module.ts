@@ -1,10 +1,10 @@
-import { NgModule, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 
 @Component({
 	selector: 'app-root',
-	template: '<ng-view></ng-view>'
+	template: '<div class="ng-view"></div>'
 })
 export class AppComponent {}
 
@@ -14,7 +14,6 @@ export class AppComponent {}
 		UpgradeModule
 	],
 	declarations: [AppComponent],
-	bootstrap: [AppComponent],
-	schemas: [CUSTOM_ELEMENTS_SCHEMA]
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
