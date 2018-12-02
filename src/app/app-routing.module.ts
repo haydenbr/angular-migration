@@ -1,6 +1,10 @@
 import * as angular from 'angular';
 
-angular.module('app').config(($routeProvider, $locationProvider) => {
+angular.module('app').config(appRoutingConig);
+
+appRoutingConig.$inject = ['$routeProvider', '$locationProvider'];
+
+function appRoutingConig($routeProvider, $locationProvider) {
 	let routeResolvers = {
 		loggedIn: auth => auth.requireLogin(),
 		waitForAuth: auth => auth.waitForAuth(),
@@ -83,4 +87,4 @@ angular.module('app').config(($routeProvider, $locationProvider) => {
 			template: '<logout></logout>',
 		})
 		.otherwise('/home');
-});
+}
