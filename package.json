@@ -4,8 +4,10 @@
 	"description": "lightning talk voting app",
 	"main": "index.js",
 	"scripts": {
+		"ng": "ng",
 		"start": "ng serve",
-		"ng": "ng"
+		"build:dev": "ng build",
+		"build:prod": "ng build --prod"
 	},
 	"keywords": [],
 	"author": "joe eames",
