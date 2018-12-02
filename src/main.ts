@@ -13,7 +13,11 @@
 
 import * as angular from 'angular';
 import './angularjs-imports';
-import './vendor';
+
+import * as jquery from 'jquery/dist/jquery.min.js';
+import * as angularRoute from 'angular-route/angular-route.min.js';
+
+const keep = [jquery, angularRoute];
 
 import { enableProdMode } from '@angular/core';
 import { UpgradeModule, setAngularJSGlobal } from '@angular/upgrade/static';
