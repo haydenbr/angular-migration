@@ -7,7 +7,6 @@ angular.module('app').component('adminLogin', {
 });
 
 adminLoginCtrl.$inject = ['$location', 'currentIdentity', 'auth', 'toastr']
-
 function adminLoginCtrl($location, currentIdentity, auth, toastr) {
 	this.loggedIn = currentIdentity.authenticated();
 

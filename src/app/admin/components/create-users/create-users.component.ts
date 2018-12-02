@@ -3,6 +3,7 @@ import * as angular from 'angular';
 class CreateUsersComponent {
 	namesblob: string;
 
+	static $inject = ['parseNames', 'users', 'toastr'];
 	constructor(private parseNames, private users, private toastr) {}
 
 	import() {
