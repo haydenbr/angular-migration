@@ -1,6 +1,6 @@
 import * as angular from 'angular';
 
-angular.module('app').config($routeProvider => {
+angular.module('app').config(($routeProvider, $locationProvider) => {
 	let routeResolvers = {
 		loggedIn: auth => auth.requireLogin(),
 		waitForAuth: auth => auth.waitForAuth(),
@@ -14,6 +14,10 @@ angular.module('app').config($routeProvider => {
 		allUsers: (users, auth) =>
 			auth.requireLogin().then(() => users.getAllUsers()),
 	};
+
+	$locationProvider
+		.html5Mode(false)
+		.hashPrefix('');
 
 	$routeProvider
 		.when('/admin/login', {

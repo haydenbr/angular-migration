@@ -4,10 +4,7 @@
 	"description": "lightning talk voting app",
 	"main": "index.js",
 	"scripts": {
-		"start": "node ./server/server.js",
-		"dev": "nodemon ./server/server.js -w ./server",
-		"test": "karma start",
-		"tsc": "tsc -p . -w",
+		"start": "ng serve",
 		"ng": "ng"
 	},
 	"keywords": [],
