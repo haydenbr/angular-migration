@@ -1,6 +1,6 @@
 import * as angular from 'angular';
 
-class LoginCtrl {
+export class LoginComponent {
 	public email: string;
 
 	constructor(private $location, private currentIdentity, private auth, private toastr) {}
@@ -25,5 +25,5 @@ class LoginCtrl {
 angular.module('app').component('login', {
 	templateUrl: './login.component.html',
 	bindings: {},
-	controller: LoginCtrl
+	controller: LoginComponent
 });
