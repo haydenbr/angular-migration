@@ -1,23 +1,6 @@
-// import { enableProdMode } from '@angular/core';
-// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-// import { AppModule } from './app/app.module';
-// import { environment } from './environments/environment';
-
-// if (environment.production) {
-//   enableProdMode();
-// }
-
-// platformBrowserDynamic().bootstrapModule(AppModule)
-//   .catch(err => console.log(err));
-
 import * as angular from 'angular';
+import './vendor';
 import './angularjs-imports';
-
-import * as jquery from 'jquery/dist/jquery.min.js';
-import * as angularRoute from 'angular-route/angular-route.min.js';
-
-const keep = [jquery, angularRoute];
 
 import { enableProdMode } from '@angular/core';
 import { UpgradeModule, setAngularJSGlobal } from '@angular/upgrade/static';
